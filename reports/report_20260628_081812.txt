@@ -1,0 +1,292 @@
+SOC COPILOT - INCIDENT REPORT
+Generated: 2026-06-28 08:18:12.441918
+Total incidents: 32
+============================================================
+
+[MEDIUM] Kareem (no IP) - 5 alerts
+Time: 2026-06-25 11:13:08.569548 -> 2026-06-25 11:15:23.795752
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected, Group Enumeration Detected
+Analyst note: On June 25th, from 11:13:08 to 11:15:23, Kareem's system experienced a series of medium-severity security incidents involving account and group enumeration attempts. Multiple Sigma rules detected this activity, indicating that the system was proactively monitored for suspicious behavior. The MITRE ATT&CK framework classified these events as part of the "Discovery" tactic (T1087). No external IP address was involved in these incidents.
+
+Recommended next action: Review the detailed alert logs and security event data to identify the specific accounts or groups being enumerated, and investigate the source within the internal network that triggered these medium-severity alerts.
+
+[MEDIUM] Kareem (no IP) - 4 alerts
+Time: 2026-06-26 11:16:51.479301 -> 2026-06-26 11:18:53.696882
+MITRE Tactics: credential-access, discovery, initial-access, persistence, privilege-escalation, stealth
+MITRE Techniques: T1078, T1087, T1110
+Rules: Account Enumeration Detected, Failed Logon Attempt, Failed Logon From Public IP
+Analyst note: On June 26, 2026, at approximately 11:16:51 UTC and 11:18:53 UTC, four medium-severity security incidents occurred on a host named Kareem. The incidents involved failed logon attempts and account enumeration, indicating potential unauthorized access attempts to the system. The source IP address was not publicly accessible, suggesting that these activities originated from within the internal network. These tactics (credential-access, discovery, initial-access, persistence, privilege-escalation, stealth) and techniques (T1078, T1087, T1110) were detected using Sigma rules and MITRE ATT&CK.
+
+Recommended next action: Investigate Kareem's system logs to identify which user or entity was attempting to log in from within the internal network.
+
+[MEDIUM] Kareem (no IP) - 5 alerts
+Time: 2026-06-26 15:53:49.401056 -> 2026-06-26 15:57:39.514849
+MITRE Tactics: credential-access, discovery, impact, initial-access, persistence, privilege-escalation, stealth
+MITRE Techniques: T1078, T1087, T1110, T1531
+Rules: Account Enumeration Detected, Failed Logon Attempt, Failed Logon From Public IP, User Logoff Event
+Analyst note: On June 26, 2026, between 15:53:49 and 15:57:39, Kareem's system experienced five medium-severity security alerts over a short time window. The alerts originated from Sigma rules and MITRE ATT&CK detection, indicating potential malicious activity related to account enumeration, failed logons, and user logoff events. These incidents are associated with MITRE Tactics of initial-access, persistence, and privilege-escalation, as well as techniques T1078, T1087, T1110, and T1531. The source IP address was none/internal, indicating the attack likely originated from within the network.
+
+Recommended next action: Investigate Kareem's account activity and system logs to determine the root cause of the failed logons and user logoff events, and assess any potential privilege escalation or persistence.
+
+[MEDIUM] Kareem (no IP) - 20 alerts
+Time: 2026-06-27 05:08:18.255234 -> 2026-06-27 05:19:53.961823
+MITRE Tactics: credential-access, discovery, impact, initial-access, persistence, privilege-escalation, stealth
+MITRE Techniques: T1078, T1087, T1110, T1531
+Rules: Account Enumeration Detected, Failed Logon Attempt, Failed Logon From Public IP, User Logoff Event
+Analyst note: Kareem's system experienced a series of failed logon attempts and account enumeration events over a two-hour period, resulting in 20 alerts. The source IP was not provided to external systems, indicating that the attacks originated internally. The tactics employed included initial-access, persistence, and privilege-escalation techniques, as well as discovery and stealth methods. These activities suggest a malicious user attempting to gain unauthorized access or control over Kareem's system.
+
+Recommended next action: Review internal network logs and system event records for potential connections between the failed logon attempts and other suspicious activity to determine the specific role of each technique in the incident.
+
+[MEDIUM] Kareem (no IP) - 4 alerts
+Time: 2026-06-27 12:48:45.735741 -> 2026-06-27 12:50:21.366631
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, Group Enumeration Detected, User Logoff Event
+Analyst note: A medium-severity security incident was detected involving Host Kareem from an internal source IP address. The incident occurred over a two-minute time window during which four security alerts were triggered: Account Enumeration Detected, Group Enumeration Detected, User Logoff Event, and another alert that is not specified here but falls under the same category as the previous 2. This indicates potential unauthorized access or manipulation of user accounts on Host Kareem. The MITRE Tactics involved in this incident are discovery and impact.
+
+Next action recommended: Investigate why these security alerts were triggered on Host Kareem during a short time window, focusing on reviewing system logs to understand if there's an ongoing issue with account management or other internal security concerns.
+
+[MEDIUM] Kareem (no IP) - 6 alerts
+Time: 2026-06-27 14:36:23.460411 -> 2026-06-27 14:39:10.979671
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected, Group Enumeration Detected
+Analyst note: A medium-severity incident was detected on host Kareem between June 27th, 2026, at 14:36:23 and 14:39:10, resulting in six security alerts. The attack utilized techniques T1087 (Discovery) by attempting to enumerate account and group information from within the internal network, as indicated by the Account Enumeration Detected and Group Enumeration Detected rules firing. This incident likely involved an internal actor seeking to gather sensitive information about Kareem's system or users. Further investigation is needed to determine the full extent of this incident.
+
+Recommended next action: Conduct a thorough review of internal logs and network traffic data to identify potential evidence of the internal actor's activities, such as login attempts, directory service queries, or other signs of unauthorized access.
+
+[MEDIUM] Kareem (no IP) - 4 alerts
+Time: 2026-06-27 15:53:40.016479 -> 2026-06-27 15:53:55.996614
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, Group Enumeration Detected, User Logoff Event
+Analyst note: On June 27, 2026, at approximately 15:53:40 to 15:55:56, an internal user attempted to enumerate and impact a system by attempting multiple logon attempts (T1087) on an account within a short timeframe, followed by group enumeration (T1531). This activity was detected using Sigma rules and MITRE ATT&CK. The incident involved four distinct alerts, with a severity level of medium. No external IP address was involved in this incident.
+
+Recommended next action: Investigate the identity and intentions of the internal user who executed these actions to understand their motivations and ensure that system access controls are intact and effectively enforcing account and group security policies.
+
+[LOW] Kareem (no IP) - 8 alerts
+Time: 2026-06-24 15:50:30.513443 -> 2026-06-24 15:57:09.574669
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 24, 2026, between 15:50:30 and 15:57:09, an account enumeration event occurred on host "Kareem". The event was detected by Sigma rules and MITRE ATT&CK, indicating a low-severity incident involving eight alerts. This incident appears to be related to the discovery of system credentials or user information, as indicated by the MITRE Tactics and Techniques used. The attack seems to have originated from an internal source with no external IP address involved.
+
+Next action: Investigate the host "Kareem" to determine the context surrounding this account enumeration event, including reviewing logs and checking for any changes to system configurations or user permissions.
+
+[LOW] Kareem (no IP) - 4 alerts
+Time: 2026-06-24 16:52:53.253441 -> 2026-06-24 17:00:29.590677
+MITRE Tactics: discovery, impact, stealth
+MITRE Techniques: T1070.006, T1087, T1531
+Rules: Account Enumeration Detected, Unauthorized System Time Modification, User Logoff Event
+Analyst note: During the time window of June 24, 2026, from 16:52:53 to 17:00:29, Kareem's system experienced four low-severity alerts. The source IP was not external but rather internal. These alerts were related to discovering a new user, unauthorized modification of the system clock, and a logoff event that appeared out of place in context. The MITRE Tactics indicated stealth, discovery, and impact, while the techniques involved T1070.006, T1087, and T1531.
+
+Recommended next action: Investigate the identity of the newly discovered user on Kareem's system to understand their role, privileges, and connection to the internal network.
+
+[LOW] Kareem (no IP) - 4 alerts
+Time: 2026-06-25 11:28:01.332296 -> 2026-06-25 11:28:01.333576
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 25, 2026, at approximately 11:28 AM, our detection engine triggered four alerts related to account enumeration on a host named Kareem. The source IP of these events was none / internal, indicating that the activity occurred from within our internal network. The detected activity matched MITRE Tactics T1087 and Techniques T1087, which involve techniques used in the discovery phase of an attack. These low-severity events suggest potential unauthorized access or exploration within our internal systems.
+
+Next action: Review internal security logs to identify the user responsible for the account enumeration activities and investigate their actions to determine if any sensitive data was accessed or modified during this time window.
+
+[LOW] Kareem (no IP) - 1 alerts
+Time: 2026-06-25 12:22:46.147554 -> 2026-06-25 12:22:46.147554
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: A single alert was triggered on June 25, 2026, at 12:22:46 PM for an internal host named Kareem. The source IP address could not be determined, indicating that no external IP address was involved in the incident. According to the MITRE ATT&CK framework, this incident corresponds to a "Discovery" tactic and uses the T1087 technique, which is related to account enumeration. This low-severity alert suggests that an internal system attempt to access or enumerate accounts occurred.
+
+Recommended next action: Investigate and review the logs for the affected host (Kareem) to determine if any unusual or unauthorized activity was performed during this time window.
+
+[LOW] Kareem (no IP) - 2 alerts
+Time: 2026-06-25 13:00:51.270205 -> 2026-06-25 13:01:08.906282
+MITRE Tactics: impact, stealth
+MITRE Techniques: T1070.006, T1531
+Rules: Unauthorized System Time Modification, User Logoff Event
+Analyst note: During a low-severity security incident on June 25th, two alerts were generated related to unauthorized modifications made by user Kareem between 13:00:51 and 13:01:08. The system's time was modified in accordance with MITRE Technique T1070.006 (Use Alternate Credentials), followed by a logoff event indicated by rule T1531 (Impersonate Process). This suggests that the attacker may have been attempting to mask their identity or avoid detection. Further analysis is recommended to determine the specific actions taken and potential impact on the system.
+
+Recommended next action: Review Kareem's account activity logs for any subsequent unauthorized changes or access to sensitive data, and verify that all necessary security controls are in place to prevent similar incidents in the future.
+
+[LOW] Kareem (no IP) - 11 alerts
+Time: 2026-06-25 14:29:57.551708 -> 2026-06-25 14:44:54.593250
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: A low-severity security incident occurred on June 25, 2026, involving host "Kareem". The incident began at 14:29:57 and ended at 14:44:54, with 11 alerts fired during this time frame. According to the detection engine, a low-severity Account Enumeration Detected rule was triggered (T1087). This suggests that an attempt was made to interact with user accounts on Kareem.
+
+Recommended next action: Investigate the events surrounding the account enumeration attempts to determine the root cause and potential impact on system security.
+
+[LOW] Kareem (no IP) - 2 alerts
+Time: 2026-06-25 15:13:49.334208 -> 2026-06-25 15:20:49.464458
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event
+Analyst note: On June 25, 2026, at approximately 15:13:49 and 15:20:49, two low-severity security incidents occurred on host Kareem. The source IP was not available, indicating that the incidents originated from within the internal network. These events were categorized under MITRE Tactics as discovery and impact, with techniques T1087 and T1531 being employed. This activity likely involved user logoff events and account enumeration attempts.
+
+Recommended next action: Conduct an internal review of system logs to verify if these incidents are related to legitimate user logoffs or potential unauthorized access attempts, which may require further investigation or alert escalation.
+
+[LOW] Kareem (no IP) - 5 alerts
+Time: 2026-06-25 19:23:41.499491 -> 2026-06-25 19:28:04.134153
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 25, 2026, between 19:23 and 19:28, a series of five low-severity alerts were triggered on Kareem's system, indicating account enumeration activity occurred within this time frame. According to the detection engine, no external IP address was involved in these events, as indicated by the "none / internal" source IP. The incident is classified under the MITRE Tactics discovery and Techniques T1087. These low-severity alerts suggest that an attacker attempted to enumerate or gather information about user accounts on Kareem's system.
+
+Recommended next action: Review Kerberos authentication logs for any unusual ticket-granting tickets (TGTs) issued during this time period, as T1087 often involves the exploitation of weak Kerberos configurations.
+
+[LOW] Kareem (no IP) - 6 alerts
+Time: 2026-06-25 19:38:39.743870 -> 2026-06-25 19:54:07.301779
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event
+Analyst note: A low-severity security incident was detected involving host Kareem, with six alerts generated over a 15-minute period. The source IP address was not externally originated but rather internal to the network. According to the detection engine, the incident involved account enumeration and user logoff events, consistent with T1087 and T1531 MITRE Tactics and Techniques. This suggests that an internal user attempted to access and log off from the system without legitimate authentication.
+
+Recommended next action: Investigate the identity of the internal user(s) who triggered these alerts and assess their level of awareness about their actions' potential impact on system security.
+
+[LOW] Kareem (no IP) - 5 alerts
+Time: 2026-06-26 11:31:54.569765 -> 2026-06-26 11:32:27.338123
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: During the 17-second time window from June 26, 2026, at 11:31:54 to 11:32:27, an internal host (Kareem) was subject to multiple low-severity account enumeration events, as indicated by five Sigma rules firing the Account Enumeration Detected alert. These events were categorized under the MITRE ATT&CK tactics of "Discovery" and techniques T1087. The source IP address for these incidents was not provided, suggesting that no external IP was involved. This incident is likely an internal configuration or misconfiguration issue.
+
+Recommended next action: Investigate the cause of these account enumeration events by reviewing host access controls, authentication mechanisms, and any potential configurations that may have inadvertently allowed unauthorized attempts to access accounts.
+
+[LOW] Kareem (no IP) - 3 alerts
+Time: 2026-06-26 11:52:09.374456 -> 2026-06-26 11:56:04.969637
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 26, 2026, at approximately 11:52:09 AM, three low-severity alerts were triggered on host Kareem due to Account Enumeration Detected by our detection engine. This indicates that an attempt was made to test or manipulate user credentials on the system without a successful login. The incident occurred within a short time window from 11:52:09 AM to 11:56:04 AM, suggesting a focused effort. No external IP address was involved in this incident.
+
+Recommended next action: Investigate and review audit logs for Kareem to determine if any suspicious user activity or changes were made to the system during the detected timeframe.
+
+[LOW] Kareem (no IP) - 7 alerts
+Time: 2026-06-26 15:17:42.594797 -> 2026-06-26 15:18:02.721802
+MITRE Tactics: credential-access, discovery, impact
+MITRE Techniques: T1003.002, T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event, VSSAudit Security Event Source Registration
+Analyst note: During a low-severity security incident on June 26, 2026, at 15:17:42.594797 and 15:18:02.721802, seven security alerts were generated involving host "Kareem". The source IP address was not externally sourced, indicating it originated from within the internal network. The alerts involved multiple logoff events and a potential security event related to VSSAudit system registration. This incident appears to be related to unauthorized access or activity on the host.
+
+Recommended next action: Investigate further into the user's actions leading up to the last logoff event, focusing on the time frame where the seven security alerts were generated to understand the extent of the potential security breach and identify any patterns of malicious behavior.
+
+[LOW] Kareem (no IP) - 5 alerts
+Time: 2026-06-26 15:32:41.164362 -> 2026-06-26 15:41:11.498346
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 26, 2026, between 15:32:41 and 15:41:11, Kareem's system was subjected to low-severity Account Enumeration Detected events. These five incidents involved the attempt to access or manipulate user accounts on Kareem's host using techniques associated with T1087 (Network Service Use). The MITRE ATT&CK tactics identified here are discovery, indicating initial reconnaissance efforts. We should review network service logs and account activity to understand the scope of this incident.
+
+Recommended next action: Review and analyze Network Service Logs for signs of unusual or suspicious activity related to Kareem's host, to identify potential entry points or malicious actors exploiting T1087 techniques.
+
+[LOW] Kareem (no IP) - 17 alerts
+Time: 2026-06-27 05:32:06.523960 -> 2026-06-27 06:05:27.240063
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event
+Analyst note: On June 27, 2026, at approximately 05:32 to 06:05 hours, Kareem's system experienced a prolonged series of low-severity account logon attempts. This activity is attributed to an internal source with no associated external IP address involved. The detected anomalies were related to user logoff events and account enumeration, suggesting that the incident was likely an internal security issue rather than an externally-borne threat. Seventeen alerts were generated during this time window.
+
+Recommended next action: Investigate the underlying cause of the repeated account logon attempts and review relevant system logs for additional context to determine if there have been any recent changes or anomalies in user authentication procedures.
+
+[LOW] Kareem (no IP) - 7 alerts
+Time: 2026-06-27 11:13:01.998312 -> 2026-06-27 11:13:17.699165
+MITRE Tactics: credential-access, discovery, impact
+MITRE Techniques: T1003.002, T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event, VSSAudit Security Event Source Registration
+Analyst note: On June 27, 2026, at approximately 11:13:01.998312 and 11:13:17.699165, there were seven low-severity security incidents detected on a host named Kareem. The alerts indicated the host was engaging in account enumeration, user logoff events, VSSAudit security event source registration, suggesting unauthorized activity related to accessing and managing system credentials and access controls. These activities are classified under MITRE Tactics of credential-access, discovery, and impact. An investigation is needed to determine the nature and intent behind these incidents.
+
+Recommended next action: Review system logs and access control lists for any unusual or unauthorized changes made during this time window.
+
+[LOW] Kareem (no IP) - 5 alerts
+Time: 2026-06-27 11:28:00.171223 -> 2026-06-27 11:28:00.866179
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 27, 2026, at approximately 11:28:00 AM, an internal host (Kareem) experienced a series of low-severity security incidents over a short time window. Five Account Enumeration Detected alerts were triggered by the detection engine, indicating repeated attempts to access or enumerate the user account on Kareem without a valid login. The attacks occurred within a brief timeframe, suggesting a high-volume but not necessarily malicious activity. This incident aligns with MITRE Tactics: discovery and Techniques: T1087.
+
+Recommended next action: Review system logs from Kareem to identify the specific actions taken during this time window, such as login attempts or changes to account settings, and investigate whether these activities were legitimate or part of a larger issue.
+
+[LOW] Kareem (no IP) - 2 alerts
+Time: 2026-06-27 11:40:10.151403 -> 2026-06-27 11:40:15.330326
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 27, 2026, at approximately 11:40:10 AM and again at 11:40:15 AM, two low-severity account enumeration alerts were triggered on host Kareem. This indicates that an attempt was made to gather information about a user's account credentials without being authenticated or using legitimate access methods. The incident occurred within the internal network (no external IP address involved) and is categorized under discovery (MITRE Tactics). These attempts do not appear to have resulted in unauthorized access.
+
+Next action: Investigate host Kareem for any recent changes to account configuration settings, such as password resets or changes to multi-factor authentication policies.
+
+[LOW] Kareem (no IP) - 2 alerts
+Time: 2026-06-27 12:06:08.974602 -> 2026-06-27 12:11:16.172234
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: During a low-severity incident on June 27th, 2026, between 12:06 and 12:11 UTC, two Account Enumeration Detected alerts were triggered for host Kareem. This activity was classified as T1087 (Discovery) and involved the attempted enumeration of accounts on the system. The source IP address was determined to be none / internal, indicating that the incident occurred from within the organization's network. We recommend reviewing the system logs to determine if any additional malicious activity has occurred during this time window.
+
+Recommended next action: Review system logs for any signs of exploitation or privilege escalation.
+
+[LOW] Kareem (no IP) - 1 alerts
+Time: 2026-06-27 12:28:34.062597 -> 2026-06-27 12:28:34.062597
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: On June 27, 2026, at 12:28:34, Kareem's host was subjected to a low-severity Account Enumeration Detected incident. This occurred within a single millisecond, indicating a possible misconfiguration or automated process. The incident was categorized under the MITRE Tactics "discovery" and Techniques "T1087". As this incident was deemed low-severity, it is likely an internal issue rather than a targeted attack.
+
+Next action: Investigate the specific user account associated with Kareem's host to determine if there are any misconfigured or automated login attempts.
+
+[LOW] Kareem (no IP) - 5 alerts
+Time: 2026-06-27 14:51:21.976187 -> 2026-06-27 14:59:59.513823
+MITRE Tactics: discovery
+MITRE Techniques: T1087
+Rules: Account Enumeration Detected
+Analyst note: The security incident involved Kareem's host experiencing low-severity account enumeration attacks between June 27th, 2026, at 14:51:21 and 15:00:00. The detection engine identified five incidents during this time window, all categorized as Account Enumeration Detected. The tactics used in these incidents were classified as discovery. These events did not involve an external IP address, but rather occurred from within the internal network.
+
+Next action recommended: Investigate Kareem's host to determine if the account enumeration attempts are related to legitimate system administration activities or potential security misconfigurations that need to be addressed.
+
+[LOW] Kareem (no IP) - 3 alerts
+Time: 2026-06-27 15:35:33.738977 -> 2026-06-27 15:36:20.462297
+MITRE Tactics: discovery, impact
+MITRE Techniques: T1087, T1531
+Rules: Account Enumeration Detected, User Logoff Event
+Analyst note: During the incident window on June 27, 2026, from 15:35:33 to 15:36:20, Kareem's system experienced three low-severity security alerts. The source IP was determined as none/internal, indicating that the activity originated within the internal network. According to the detected rules, the activity involved account enumeration and user logoff events, which are consistent with T1087 (Discovery) and T1531 (Lateral Movement). These tactics indicate an attempt to explore and map the system's environment.
+
+Recommended next action: Review internal network logs to determine if the activity was related to a legitimate user interaction or a potential security incident.
+
+[INFORMATIONAL] Kareem (no IP) - 1 alerts
+Time: 2026-06-26 12:23:32.437614 -> 2026-06-26 12:23:32.437614
+MITRE Tactics: impact
+MITRE Techniques: T1531
+Rules: User Logoff Event
+Analyst note: The single alert occurred on Kareem's host from an internal source IP address at a precise timestamp. The event was logged as a user logoff, specifically matching a SIGMA rule for a "User Logoff Event" and aligning with MITRE ATT&CK tactics and techniques. This activity did not demonstrate any malicious intent but rather reflected normal system behavior. The incident's short duration and lack of further activity suggest it may be an anomaly or system adjustment.
+
+Recommended next action: Verify that the user logoff event was a legitimate system process and confirm that no sensitive data was transmitted during this time window.
+
+[INFORMATIONAL] Kareem (no IP) - 1 alerts
+Time: 2026-06-26 16:41:53.893774 -> 2026-06-26 16:41:53.893774
+MITRE Tactics: impact
+MITRE Techniques: T1531
+Rules: User Logoff Event
+Analyst note: The incident occurred on June 26th at 16:41:53 and involved Host Kareem. The source IP address was not specified as an external entity, but rather as "none / internal", indicating that the activity originated from within our network. According to the detection engine, the user logged off from their session during this time window. This is being classified as a T1531 tactic, specifically a User Logoff Event.
+
+Recommended next action: Investigate which users are currently logged off and review the logs for any subsequent activities that may indicate unauthorized access or malicious behavior.
+
+[INFORMATIONAL] Kareem (no IP) - 2 alerts
+Time: 2026-06-27 13:24:11.614399 -> 2026-06-27 13:24:11.614475
+MITRE Tactics: credential-access
+MITRE Techniques: T1003.002
+Rules: VSSAudit Security Event Source Registration
+Analyst note: Kareem's internal host experienced two alerts related to security event source registration within a short time frame on June 27, 2026, at 13:24:11.614399 and 13:24:11.614475. The MITRE ATT&CK framework identified the tactics and techniques involved as credential-access using T1003.002, which refers to the use of system auditing tools. These alerts indicate a potential issue with the host's security event source registration configuration. Further investigation is necessary to understand the cause and impact of this incident.
+
+Next action: Investigate why internal hosts were utilizing external audit logging services, as indicated by the VSSAudit Security Event Source Registration rule that fired these two alerts.
+
+[INFORMATIONAL] Kareem (no IP) - 1 alerts
+Time: 2026-06-27 13:35:56.485746 -> 2026-06-27 13:35:56.485746
+MITRE Tactics: impact
+MITRE Techniques: T1531
+Rules: User Logoff Event
+Analyst note: A single alert triggered from the User Logoff Event rule, indicating a potential issue with user logon and logoff processes on the host named Kareem. The source IP of this event was none / internal, meaning no external IP address was involved in the incident. This alert fell under the MITRE Tactics (impact) and Techniques (T1531), suggesting that an adversary may have been attempting to gain visibility into user activity. Further investigation is required to understand the significance of this alert.
+
+Recommended next action: Review system logs for a continuous period before and after the logoff event to determine if there were any other unusual activities or modifications made on Kareem during this time window.

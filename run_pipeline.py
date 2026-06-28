@@ -1,79 +1,75 @@
 # run_pipeline.py
-# Full pipeline: parse logs -> Sigma detection -> MITRE enrichment -> SQLite storage
+# Full pipeline: parse logs -> run detection -> save alerts to SQLite
 
 from src.parsers.evtx_parser import parse_evtx
-from src.detection.engine import DetectionEngine
+from src.detection.engine import run_engine
 from src.database.models import init_db, Alert
 from sqlalchemy.orm import Session
+from datetime import datetime
 from collections import Counter
 import json, sys
 
+
+def parse_ts(ts_str):
+    try:
+        return datetime.fromisoformat(str(ts_str))
+    except Exception:
+        return datetime.utcnow()
+
+
+def extract_ip(raw_event_json):
+    try:
+        data = json.loads(raw_event_json) if raw_event_json else {}
+    except Exception:
+        return None
+    ip = data.get("IpAddress")
+    return ip if ip and ip not in ("-", "::1", "127.0.0.1", "") else None
+
+
 def run_pipeline(evtx_path: str):
-    # Step 1 — Parse
     print(f"[*] Parsing {evtx_path}...")
     events = parse_evtx(evtx_path)
     print(f"[+] Parsed {len(events)} events")
 
-    if not events:
-        print("[!] No events found in file")
-        return
-
-    # Step 2 — Detect
-    print("[*] Loading Sigma rules + MITRE ATT&CK data...")
-    engine = DetectionEngine()
-    print(f"[*] Running {len(engine.sigma.rules)} Sigma rules against {len(events)} events...")
-    alerts = engine.run(events)
+    print("[*] Running detection engine...")
+    alerts = run_engine(events)
     print(f"[+] {len(alerts)} alerts fired")
 
-    # Step 3 — Store
     print("[*] Saving alerts to database...")
-    db_engine = init_db()
-    with Session(db_engine) as session:
+    engine = init_db()
+    with Session(engine) as session:
         for a in alerts:
             record = Alert(
-                id                   = a["alert_id"],
-                host                 = a["host"],
-                user                 = a["user"],
-                event_id             = a["event_id"],
-                rule_name            = a["rule_name"],
-                sigma_rule_id        = a.get("sigma_rule_id", ""),
-                mitre_technique_id   = a["mitre_technique_id"],
-                mitre_technique_name = a["mitre_technique_name"],
-                mitre_tactic         = a["mitre_tactic"],
-                severity             = a["severity"],
-                confidence           = a["confidence"],
-                raw_event            = a["raw_event"]
+                id                   = a.get("alert_id"),
+                timestamp            = parse_ts(a.get("timestamp")),
+                host                 = a.get("host", "UNKNOWN"),
+                user                 = a.get("user", "UNKNOWN"),
+                source_ip            = extract_ip(a.get("raw_event")),
+                event_id             = a.get("event_id", ""),
+                rule_name            = a.get("rule_name", "Unknown"),
+                mitre_technique_id   = a.get("mitre_technique_id", "UNKNOWN"),
+                mitre_technique_name = a.get("mitre_technique_name", "Unknown"),
+                mitre_tactic         = a.get("mitre_tactic", "Unknown"),
+                severity             = a.get("severity", "medium"),
+                confidence           = a.get("confidence", 0.5),
+                raw_event            = a.get("raw_event", "{}"),
             )
             session.add(record)
         session.commit()
     print(f"[+] {len(alerts)} alerts saved to soc_copilot.db")
 
-    # Step 4 — Summary
-    print("\n" + "=" * 60)
-    print("  DETECTION SUMMARY")
-    print("=" * 60)
+    print("\n--- DETECTION SUMMARY ---")
+    tactics = Counter(a.get("mitre_tactic", "Unknown") for a in alerts)
+    severities = Counter(a.get("severity", "unknown") for a in alerts)
 
-    print(f"\n  Events parsed   : {len(events)}")
-    print(f"  Alerts fired    : {len(alerts)}")
-    print(f"  Detection rate  : {round(len(alerts)/len(events)*100, 1)}%")
-
-    tactics = Counter(a["mitre_tactic"] for a in alerts)
-    severities = Counter(a["severity"] for a in alerts)
-    rules = Counter(a["rule_name"] for a in alerts)
-
-    print("\n  By Tactic:")
+    print("\nBy Tactic:")
     for tactic, count in tactics.most_common():
-        print(f"    {tactic}: {count}")
+        print(f"  {tactic}: {count}")
 
-    print("\n  By Severity:")
+    print("\nBy Severity:")
     for sev, count in severities.most_common():
-        print(f"    {sev.upper()}: {count}")
+        print(f"  {sev.upper()}: {count}")
 
-    print("\n  Top Rules Fired:")
-    for rule_name, count in rules.most_common(15):
-        a = next(x for x in alerts if x["rule_name"] == rule_name)
-        print(f"    [{a['severity'].upper():>8}] {rule_name} ({count}x)")
-        print(f"             MITRE: {a['mitre_technique_id']} - {a['mitre_technique_name']}")
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "logs/samples/Security.evtx"
